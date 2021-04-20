@@ -1,0 +1,15 @@
+{% load static %}
+<title>Latest News</title>
+<link rel="stylesheet" type="text/css" href="{% static 'news/style.css' %}">
+
+<h1>Latest News</h1>
+
+{% if latest_article_list %}
+    {% for article in latest_article_list %}
+        <h2>{{ article.heading }}</h2>
+        <p>{{ article.pub_date }}</p>
+        <p>{{ article.body }}</p>
+    {% endfor %}
+{% else %}
+    <p>No articles are available.</p>
+{% endif %}
